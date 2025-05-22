@@ -23,6 +23,7 @@ jobs:
       - id: generate-jobs
         name: Generate Jobs
         run: |
+          bash -x "$BASHBREW_SCRIPTS/github-actions/generate.sh"
           strategy="$("$BASHBREW_SCRIPTS/github-actions/generate.sh")"
           # If triggered by a cron event, filter strategy to include `unstable` and `unstable-alpine`
           if [[ "${{ github.event_name }}" == "schedule" ]]; then
